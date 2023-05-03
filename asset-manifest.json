@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/triviality/static/css/main.c2cab247.css",
+    "main.js": "/triviality/static/js/main.9a950db5.js",
+    "index.html": "/triviality/index.html",
+    "main.c2cab247.css.map": "/triviality/static/css/main.c2cab247.css.map",
+    "main.9a950db5.js.map": "/triviality/static/js/main.9a950db5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c2cab247.css",
+    "static/js/main.9a950db5.js"
+  ]
+}
