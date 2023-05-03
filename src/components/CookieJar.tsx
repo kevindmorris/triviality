@@ -6,7 +6,7 @@ export default function CookieJar() {
     <Navbar expand="lg" className="border-bottom">
       <Container>
         <Navbar.Brand href="#">
-          <img src={"/triviality.png"} alt="" style={{ height: 40 }} />
+          <img src={require("./triviality.png")} alt="" style={{ height: 40 }} />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
