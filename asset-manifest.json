@@ -1,13 +1,14 @@
 {
   "files": {
     "main.css": "/triviality/static/css/main.c2cab247.css",
-    "main.js": "/triviality/static/js/main.9a950db5.js",
+    "main.js": "/triviality/static/js/main.0c5ddccb.js",
+    "static/media/triviality.png": "/triviality/static/media/triviality.b76415ec4065e22b031a.png",
     "index.html": "/triviality/index.html",
     "main.c2cab247.css.map": "/triviality/static/css/main.c2cab247.css.map",
-    "main.9a950db5.js.map": "/triviality/static/js/main.9a950db5.js.map"
+    "main.0c5ddccb.js.map": "/triviality/static/js/main.0c5ddccb.js.map"
   },
   "entrypoints": [
     "static/css/main.c2cab247.css",
-    "static/js/main.9a950db5.js"
+    "static/js/main.0c5ddccb.js"
   ]
 }
