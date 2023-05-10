@@ -49,13 +49,16 @@ export default function Question(props: any) {
   return (
     <div
       style={{
-        padding: `${theme.spacing(1)} ${theme.spacing(10)}`,
+        width: "100%",
+        display: "flex",
+        justifyContent: "center",
+        padding: theme.spacing(1),
       }}
     >
       <Paper
         variant="outlined"
         sx={{
-          width: "100%",
+          width: "80vw",
           p: theme.spacing(1),
           borderColor: correct ? "green" : !guessed ? "grey" : "red",
         }}
