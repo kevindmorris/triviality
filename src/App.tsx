@@ -16,7 +16,14 @@ function App() {
   }, []);
 
   return (
-    <div style={{ height: "100vh", display: "flex", flexDirection: "column" }}>
+    <div
+      style={{
+        height: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        overflow: "hidden",
+      }}
+    >
       <CookieJar />
       <Questions />
       <Nikes />
