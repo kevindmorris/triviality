@@ -30,7 +30,7 @@ export default class Api {
 
   async getQuestions(amount: number): Promise<any> {
     let response = await this.baseApi().axios.get(this.baseApi().base, {
-      params: { amount: amount },
+      params: { amount: amount, difficulty: "easy", type: "multiple" },
     });
 
     return response;

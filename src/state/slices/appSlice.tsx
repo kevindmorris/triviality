@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../store";
 import Api from "../../services/trivialityApi";
+import { v4 } from "uuid";
 
 interface AppState {
   status: { questions: "idle" | "pending" | "succeeded" | "failed" };
@@ -21,6 +22,13 @@ export const fetchQuestionsAsync = createAsyncThunk(
     return response.data.results;
   }
 );
+export const fetchMoreQuestionsAsync = createAsyncThunk(
+  "app/fetchMoreQuestions",
+  async (amount: number) => {
+    const response = await api.getQuestions(amount);
+    return response.data.results;
+  }
+);
 
 export const appSlice = createSlice({
   name: "app",
@@ -34,10 +42,45 @@ export const appSlice = createSlice({
       fetchQuestionsAsync.fulfilled,
       (state, action: PayloadAction<any[]>) => {
         state.status.questions = "idle";
-        state.questions = action.payload;
+        state.questions = action.payload.map((q) => ({
+          id: v4(),
+          question: q.question,
+          answer: q.correct_answer,
+          options: [q.correct_answer, ...q.incorrect_answers],
+          guessed: false,
+          correct: false,
+          category: q.category,
+          type: q.type,
+          difficulty: q.difficulty,
+        }));
       }
     );
     builder.addCase(fetchQuestionsAsync.rejected, (state, action) => {
+      state.status.questions = "failed";
+    });
+
+    builder.addCase(fetchMoreQuestionsAsync.pending, (state, action) => {
+      state.status.questions = "pending";
+    });
+    builder.addCase(
+      fetchMoreQuestionsAsync.fulfilled,
+      (state, action: PayloadAction<any[]>) => {
+        state.status.questions = "idle";
+        const newQuestions = action.payload.map((q) => ({
+          id: v4(),
+          question: q.question,
+          answer: q.correct_answer,
+          options: [q.correct_answer, ...q.incorrect_answers],
+          guessed: false,
+          correct: false,
+          category: q.category,
+          type: q.type,
+          difficulty: q.difficulty,
+        }));
+        state.questions = [...state.questions, ...newQuestions];
+      }
+    );
+    builder.addCase(fetchMoreQuestionsAsync.rejected, (state, action) => {
       state.status.questions = "failed";
     });
   },

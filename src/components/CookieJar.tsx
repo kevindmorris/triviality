@@ -1,21 +1,31 @@
+import { Button, Paper, useTheme } from "@mui/material";
 import React from "react";
-import { Container, Nav, Navbar } from "react-bootstrap";
+import { fetchQuestionsAsync } from "../state/slices/appSlice";
+import { useAppDispatch } from "../state/hooks";
 
 export default function CookieJar() {
+  const dispatch = useAppDispatch();
+
+  const theme = useTheme();
   return (
-    <Navbar expand="lg" className="border-bottom">
-      <Container>
-        <Navbar.Brand href="#">
-          <img src={require("./triviality.png")} alt="" style={{ height: 40 }} />
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#quiz">Quiz</Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+    <Paper
+      elevation={0}
+      sx={{
+        position: "sticky",
+        p: theme.spacing(1),
+        borderBottom: `1px solid ${theme.palette.divider}`,
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+      }}
+    >
+      <img src={require("./triviality.png")} alt="" style={{ height: 40 }} />
+      <Button
+        variant="outlined"
+        onClick={() => dispatch(fetchQuestionsAsync(5))}
+      >
+        New Questions
+      </Button>
+    </Paper>
   );
 }
