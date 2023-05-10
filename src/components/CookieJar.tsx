@@ -10,6 +10,7 @@ export default function CookieJar() {
   return (
     <Paper
       elevation={0}
+      square
       sx={{
         position: "sticky",
         p: theme.spacing(1),
