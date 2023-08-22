@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import type { RootState } from "../store";
 import Api from "../../services/trivialityApi";
 import { v4 } from "uuid";
 

@@ -1,12 +1,8 @@
-import React from "react";
 import { useAppDispatch, useAppSelector } from "../state/hooks";
 import Question from "./Question";
-import { Button, CircularProgress } from "@mui/material";
-import { fetchMoreQuestionsAsync } from "../state/slices/appSlice";
+import { CircularProgress } from "@mui/material";
 
 export default function Questions() {
-  const dispatch = useAppDispatch();
-
   const status = useAppSelector((state) => state.app.status);
   const questions = useAppSelector((state) => state.app.questions);
 
@@ -28,7 +24,6 @@ export default function Questions() {
     <div
       style={{
         flex: "1 1 0",
-        overflowY: "auto",
       }}
     >
       <div>

@@ -9,6 +9,8 @@ export default function Nikes() {
       elevation={0}
       square
       sx={{
+        position: "sticky",
+        bottom: 0,
         p: theme.spacing(0.5),
         borderTop: `1px solid ${theme.palette.divider}`,
         display: "flex",
